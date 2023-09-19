@@ -10,30 +10,28 @@ class Solution{
     {
         unordered_map<int,int> mp;
         for(int i=0;i<n;i++) mp[arr[i]]=i;
+        
         int largest=n;
         
-        for(int i=0; i<n; i++){
-            if(k == 0) break;
-            else if(arr[i]==largest){
-                largest--;
-            }
-            else if(arr[i] != largest){
+        for(int i=0;i<n;i++){
+            if(k==0)break;
+            
+            else if(arr[i]==largest) largest--;
+            
+            else if(arr[i]!=largest){
                 
-                int indexOfLargest = mp[largest];
-                swap(arr[i], arr[indexOfLargest]);
+                int iol=mp[largest];
+                swap(arr[i],arr[iol]);
                 
-                mp[arr[i]] = i;
-                mp[arr[indexOfLargest]] = indexOfLargest;
+                mp[arr[i]]=i;
+                mp[arr[iol]]=iol;
                 
                 largest--;
                 k--;
+            }
+        }
+        
     }
-}
-            // cout<<"["<<largest<<" "<<k<<" "<<i<<"]";
-            
-           
-    }
-    
 };
 
 //{ Driver Code Starts.
