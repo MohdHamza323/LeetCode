@@ -11,23 +11,9 @@ class Solution{
     // N: size of array
     // K: element to be searche
     int searchInSorted(int arr[], int N, int K) 
-    { 
-        int s=0;
-        int e=N-1;
-        int mid=s+(e-s)/2;
-        
-        while(s<=e){
-            if(arr[mid]==K)    return 1;
-            
-            else if(mid-1>=0 && arr[mid-1]==K) return 1;
-            
-            else if(mid+1<N && arr[mid+1]==K)  return 1;
-            
-            if(arr[mid]<K) s=mid+2;
-            
-            if(arr[mid]>K)  e=mid-2;
-            
-            mid=s+(e-s)/2;
+    {
+        for(int i=0;i<N;i++){
+            if(arr[i]==K)   return 1;
         }
         
         return -1;
@@ -36,6 +22,7 @@ class Solution{
        
     }
 };
+
 
 //{ Driver Code Starts.
 
